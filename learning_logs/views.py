@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import Http404
 from .forms import TopicForm, EntryForm
 from .models import Topic, Entry
@@ -22,7 +22,7 @@ def topics(request):
 @login_required
 def topic(request, topic_id):
     """show a single topic and the associated entries"""
-    topic = Topic.objects.get(id=topic_id)
+    topic = get_object_or_404(Topic, id=topic_id)
     # verifies if the topic belongs to the current user
     if topic.owner != request.user:
         raise Http404
