@@ -1,0 +1,11 @@
+{% extends "learning_logs/base.html" %}
+{% block page_header %}
+    <div class="jumbotron">
+        <h1 class="display-3">Track Your Learning</h1>
+        <p class="lead">
+            Make a personalized learning log, that includes a list of any topics you are learning about
+            with a summary of what you learned for a particular day
+        </p>
+        <a class="btn-lg btn btn-primary" href="{% url 'users:register' %}">Begin learning today! &raquo;</a>
+    </div>
+{% endblock page_header %}
